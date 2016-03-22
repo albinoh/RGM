@@ -1,0 +1,7 @@
+Example usage:
+
+Write output to file
+java -jar Pricer.jar 10000 < .\resources\pricer.in >outputtest
+
+Write output to system out
+java -jar Pricer.jar 10000 < .\resources\pricer.in
