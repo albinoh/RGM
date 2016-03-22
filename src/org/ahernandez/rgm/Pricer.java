@@ -33,8 +33,8 @@ public class Pricer {
 	
 	public Pricer(int lTargetSize, OutputStream lOut){
 		mTargetSize = lTargetSize;
-		mBidBook = new Book(new BuyOrderComparator(), mTargetSize);
-		mAskBook = new Book(new SellOrderComparator(), mTargetSize);
+		mBidBook = new Book(new BidOrderComparator(), mTargetSize);
+		mAskBook = new Book(new AskOrderComparator(), mTargetSize);
 		mWriter = new PrintWriter(lOut);	
 	}
 	
@@ -73,7 +73,7 @@ public class Pricer {
 		}
 	}
 	
-	private class BuyOrderComparator implements Comparator<Order>
+	private class BidOrderComparator implements Comparator<Order>
 	{
 	    @Override
 	    public int compare(Order x, Order y)
@@ -82,7 +82,7 @@ public class Pricer {
 	    }
 	}
 	
-	private class SellOrderComparator implements Comparator<Order>
+	private class AskOrderComparator implements Comparator<Order>
 	{
 	    @Override
 	    public int compare(Order x, Order y)
