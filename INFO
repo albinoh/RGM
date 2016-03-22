@@ -1,0 +1,27 @@
+How did you choose your implementation language?
+
+	I have more experience with Java than other languages, the language also has a lot of resources 
+	readily available for use. 
+
+What is the time complexity for processing an Add Order message?
+
+	Adding elements to the Bid or Ask book takes O(log(n)) for the add method of a priority queue. When
+	exceeding the target-size elements have to be polled and saved, this takes C * log(n) 
+
+What is the time complexity for processing a Reduce Order message?
+
+	Updating an order size is achieved using a Hash Map. The reduce then needs to be processed by one
+	of the Bid or Ask books. The operations on these books are reduced by remembering the value of the 
+	orders within the target-size to minimize the need to look the order up inside the priority queue. 
+	Given the fact that we avoid executing "contains and remove" on the priority queue the complexity
+	of reduce would be similar to add C * log(n) 
+
+If your implementation were put into production and found to be too slow, what ideas would you try out to improve its performance? (Other than reimplementing it in a different language such as C or C++.)
+
+	- Replace the BigDecimal operations used with a primitive type while ensuring correct calculations.
+	- Extend the priority queue or implement a new one to act as a double sided priority queue to avoid 
+	using one for holding the values up to the target size and another for holding the rest
+ 
+	
+	
+	
